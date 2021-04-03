@@ -2,7 +2,7 @@
   "name": "vite2-vue2-ts",
   "version": "1.0.0",
   "description": "vite2-vue2-ts",
-  "author": "",
+  "author": "lgcf1314@gmail.com",
   "private": true,
   "scripts": {
     "dev": "vite",
@@ -122,7 +122,9 @@
     "typescript",
     "admin",
     "template",
-    "vant-ui"
+    "vant-ui",
+    "vite2",
+    "vue2"
   ],
   "lint-staged": {
     "*.{js,vue}": [
