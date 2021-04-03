@@ -1,6 +1,8 @@
 <template>
   <div class="about-model tcenter">
-    <div class="single" @click="$router.push('/home')">about,点击跳转home</div>
+    <van-button class="flex" type="primary" @click="$router.push('/home')"
+      >about,点击跳转home</van-button
+    >
     <div class="single">about</div>
     <div class="single">about</div>
     <div class="single">about</div>
@@ -35,7 +37,8 @@ export default class About extends Vue {
 
 .single {
   width: 100%;
-  height: 50px;
+  height: 30px;
+  margin-top: 20px;
 }
 </style>
 
