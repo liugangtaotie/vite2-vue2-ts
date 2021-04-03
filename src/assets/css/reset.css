@@ -146,12 +146,7 @@ hr {
 
 /*修改tab选中的下标的位置*/
 .van-tabs__line {
-  background-color: #2abc6d !important;
   z-index: 0 !important;
-}
-
-.van-tabbar-item--active {
-  color: #2abc6d !important;
 }
 
 /*清除浮动*/

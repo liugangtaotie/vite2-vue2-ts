@@ -20,28 +20,17 @@
     <van-button class="flex mt10" type="primary" @click="onClickAdd">add +</van-button>
     <van-button class="flex mt10" type="primary" @click="onClickSub">dec -</van-button>
 
-    <van-tabs v-model="activeTab">
-      <van-tab v-for="index in 4" :title="'tab' + index" :key="index">
-        content of tab {{ index }}
-      </van-tab>
-    </van-tabs>
-
-    <van-tabbar v-model="active">
-      <van-tabbar-item icon="home-o">Tab</van-tabbar-item>
-      <van-tabbar-item icon="search" dot>Tab</van-tabbar-item>
-      <van-tabbar-item icon="friends-o" badge="5">Tab</van-tabbar-item>
-      <van-tabbar-item icon="setting-o" badge="20">Tab</van-tabbar-item>
-    </van-tabbar>
+    <MyFooter :active="0"></MyFooter>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-// import BsDialog from "@COM/BsDialog/index.vue";
+import MyFooter from "@/components/MyFooter.vue";
 
 @Component({
   name: "Home",
-  // components: { BsDialog },
+  components: { MyFooter },
 })
 export default class Home extends Vue {
   private signToShow: Boolean = false; //

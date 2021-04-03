@@ -21,3 +21,4 @@ npm run build && make pro
 ## 三、项目特色
 ### 1. 开发环境，秒级更新，vite2成功构建vue2；
 ### 2. 使用postcss-px-to-viewport 插件，实现响应式布局（任意屏幕适配）；
+### 3. 根据vant2 自定义主题颜色；
