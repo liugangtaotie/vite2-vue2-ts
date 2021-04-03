@@ -2,7 +2,7 @@
 
 [ 注意: 下面的说明仅供参考,会由于项目变更而发生变化,请随时保持沟通! ]()
 
-[gitlab - 源码](https://github.com/liugangtaotie/vite2-vue2-ts.git)
+[github - 源码](https://github.com/liugangtaotie/vite2-vue2-ts.git)
 
 ## 二、Build Setup(本地开发)
 

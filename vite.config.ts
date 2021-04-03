@@ -107,23 +107,11 @@ export default defineConfig({
     // Load proxy configuration from .env
     // proxy: createProxy(VITE_PROXY),
     proxy: {
-      "/hcn-web": {
-        target: "https://jkt.bsoft.com.cn/hcn-web-zk",
+      "/api": {
+        target: "https://xxx.xx.xx/xxx",
         changeOrigin: true,
         ws: true,
-        rewrite: (path) => path.replace(/^\/hcn-web/, ""),
-      },
-      "/hcn-news": {
-        target: "https://jkt.bsoft.com.cn/hcn-web-zk",
-        changeOrigin: true,
-        ws: true,
-        rewrite: (path) => path.replace(/^\/hcn-news/, ""),
-      },
-      "/hcn-health": {
-        target: "https://jkt.bsoft.com.cn/dist-health-record-zk",
-        changeOrigin: true,
-        ws: true,
-        rewrite: (path) => path.replace(/^\/hcn-health/, ""),
+        rewrite: (path) => path.replace(/^\/api/, ""),
       },
     },
 
