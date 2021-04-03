@@ -7,14 +7,11 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import BsFooter from "@COM/BsFooter/index.vue";
-import apiObj from "@API/main";
 import BsDialog from "@COM/BsDialog/index.vue";
-import { isObjectValueEqual } from "@API/util";
 
 @Component({
   name: "CommonModel",
-  components: { BsFooter, BsDialog },
+  components: { BsDialog },
 })
 export default class CommonModel extends Vue {}
 </script>

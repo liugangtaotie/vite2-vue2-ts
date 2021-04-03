@@ -8,7 +8,7 @@
 // 无需手动配置
 const PRODUCTION_ENV = location.pathname.split("/")[1].slice(4);
 
-let base = `/hcn-web${PRODUCTION_ENV}`; // 生成产品用      开发或者提交都用这个地址
+let base = `/xxxx${PRODUCTION_ENV}`; // 生成产品用      开发或者提交都用这个地址
 // eslint-disable-next-line prettier/prettier
 let config = {} as any;
 

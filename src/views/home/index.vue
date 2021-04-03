@@ -1,6 +1,17 @@
 <template>
   <div class="home-model tcenter">
-    <van-button class="flex" type="primary" @click="$router.push('/about')"
+    <van-notice-bar
+      text="Technology is the common soul of the people who developed it."
+      left-icon="volume-o"
+    />
+    <van-swipe class="my-swipe" :autoplay="3000" indicator-color="white">
+      <van-swipe-item>1</van-swipe-item>
+      <van-swipe-item>2</van-swipe-item>
+      <van-swipe-item>3</van-swipe-item>
+      <van-swipe-item>4</van-swipe-item>
+    </van-swipe>
+    <van-divider />
+    <van-button class="flex mt10" type="primary" @click="$router.push('/about')"
       >home,点击跳转about</van-button
     >
     <div class="single">home</div>
@@ -32,7 +43,15 @@ export default class Home extends Vue {
 .home-model {
   width: 100%;
   height: 100vh;
-  margin-top: 50px;
+  padding: 10px;
+}
+
+.my-swipe .van-swipe-item {
+  font-size: 20px;
+  line-height: 150px;
+  color: #fff;
+  text-align: center;
+  background-color: #39a9ed;
 }
 
 .single {

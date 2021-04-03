@@ -1,10 +1,10 @@
 export default [
-  // 首页
+  // router redirect
   {
     path: "/",
     redirect: "/home",
   },
-  // 首页
+  // home
   {
     path: "/home",
     meta: {
@@ -14,7 +14,7 @@ export default [
     },
     component: () => import("@VIE/home/index.vue"),
   },
-  // 关于
+  // about
   {
     path: "/about",
     meta: {

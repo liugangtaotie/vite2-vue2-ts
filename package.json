@@ -1,5 +1,5 @@
 {
-  "name": "vite2-vue2-ts",
+  "name": "vite2-vue2-vant2-ts",
   "version": "1.0.0",
   "description": "vite2-vue2-ts",
   "author": "lgcf1314@gmail.com",
@@ -123,6 +123,7 @@
     "admin",
     "template",
     "vant-ui",
+    "vant2",
     "vite2",
     "vue2"
   ],
