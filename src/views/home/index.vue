@@ -19,7 +19,19 @@
     </div>
     <van-button class="flex mt10" type="primary" @click="onClickAdd">add +</van-button>
     <van-button class="flex mt10" type="primary" @click="onClickSub">dec -</van-button>
-    <div class="single">home</div>
+
+    <van-tabs v-model="activeTab">
+      <van-tab v-for="index in 4" :title="'tab' + index" :key="index">
+        content of tab {{ index }}
+      </van-tab>
+    </van-tabs>
+
+    <van-tabbar v-model="active">
+      <van-tabbar-item icon="home-o">Tab</van-tabbar-item>
+      <van-tabbar-item icon="search" dot>Tab</van-tabbar-item>
+      <van-tabbar-item icon="friends-o" badge="5">Tab</van-tabbar-item>
+      <van-tabbar-item icon="setting-o" badge="20">Tab</van-tabbar-item>
+    </van-tabbar>
   </div>
 </template>
 
@@ -34,11 +46,12 @@ import { Component, Vue } from "vue-property-decorator";
 export default class Home extends Vue {
   private signToShow: Boolean = false; //
   private num: number = 0;
+  private active: number = 0;
+  private activeTab: number = 0;
 
   created() {}
 
   mounted() {
-    console.info("1111", this.$store);
     this.num = this.$store.state.moduleMain.count;
   }
 

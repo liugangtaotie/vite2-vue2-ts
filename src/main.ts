@@ -16,6 +16,8 @@ import loadingImg from '@STA/img/loading.gif';
 
 // 全局样式
 import "./assets/css/theme.less";
+// import '@ASS/css/theme.less'
+// import "vant/es/area/index.less"
 import "vant/lib/index.css"; // 全局引入样式
 
 import cfg from "./api/appConfig";

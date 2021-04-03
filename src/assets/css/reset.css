@@ -150,6 +150,10 @@ hr {
   z-index: 0 !important;
 }
 
+.van-tabbar-item--active {
+  color: #2abc6d !important;
+}
+
 /*清除浮动*/
 .clearfix::after {
   display: block;

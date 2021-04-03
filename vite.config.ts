@@ -3,6 +3,7 @@ import { defineConfig } from "vite";
 import { createVuePlugin } from "vite-plugin-vue2";
 import tsconfigPaths from "vite-tsconfig-paths";
 import copy from "rollup-plugin-copy";
+import vitePluginImp from "vite-plugin-imp";
 
 import pkg from "./package.json";
 import moment from "moment";
@@ -30,6 +31,7 @@ export default defineConfig({
     // exclude: ["underscore"],
   },
 
+  // 配置别名
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "src"),
@@ -49,13 +51,31 @@ export default defineConfig({
       targets: [{ src: "static/*", dest: "dist/static" }],
       hook: "writeBundle", // notice here
     }),
+
+    // 按需加载依赖库
+    // vitePluginImp({
+    //   libList: [
+    //     {
+    //       libName: "vant",
+    //       style(name) {
+    //         if (/CompWithoutStyleFile/i.test(name)) {
+    //           // This will not import any style file
+    //           return false;
+    //         }
+    //         // 注意此处必须引入less，否则自定义主题不起作用
+    //         return `vant/es/${name}/index.less`;
+    //       },
+    //     },
+    //   ],
+    // }),
   ],
 
   css: {
     preprocessorOptions: {
       less: {
-        globalVars: {
+        modifyVars: {
           hack: `true; @import "${path.join(__dirname, "./src/assets/css/theme.less")}"`,
+          javascriptEnabled: true,
         },
       },
     },
