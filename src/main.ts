@@ -11,7 +11,7 @@ import "./assets/css/sprites-generated.css";
 
 // Add lazyload directive
 import VueLazyload from "vue-lazyload";
-import errorImg from '@ASS/images/index/icon_hospital.png';
+import errorImg from '@ASS/images/defaultPhoto.png';
 import loadingImg from '@STA/img/loading.gif';
 
 // 全局样式
@@ -20,9 +20,9 @@ import "vant/lib/index.css"; // 全局引入样式
 
 import cfg from "./api/appConfig";
 import * as filters from "./api/filters";
-import resDefaultImg from '@ASS/images/index/default_user.png'
-import docDefaultImg from '@ASS/images/index/docDefaultPhoto.png'
-import sealDefaultImg from '@ASS/images/index/seal.png'
+import resDefaultImg from '@ASS/images/defaultPhoto.png'
+import docDefaultImg from '@ASS/images/defaultPhoto.png'
+import sealDefaultImg from '@ASS/images/defaultPhoto.png'
 
 // 添加图片预览组件
 import preview from "vue-photo-preview";

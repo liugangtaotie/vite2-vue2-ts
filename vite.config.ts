@@ -3,14 +3,24 @@ import { defineConfig } from "vite";
 import { createVuePlugin } from "vite-plugin-vue2";
 import tsconfigPaths from "vite-tsconfig-paths";
 import copy from "rollup-plugin-copy";
-// import { injectHtml } from "vite-plugin-html";
+
+import pkg from "./package.json";
+import moment from "moment";
+
+const { dependencies, devDependencies, name, version } = pkg;
+const __APP_INFO__ = {
+  pkg: { dependencies, devDependencies, name, version },
+  lastBuildTime: moment().format("YYYY-MM-DD HH:mm:ss"),
+};
 
 export default defineConfig({
   base: "./",
 
-  // define: {
-  //   global: JSON.stringify({}),
-  // },
+  define: {
+    // setting vue-i18-next
+    // Suppress warning
+    __APP_INFO__: JSON.stringify(__APP_INFO__),
+  },
 
   // 项目根目录
   root: process.cwd(),
@@ -34,6 +44,7 @@ export default defineConfig({
   plugins: [
     createVuePlugin(),
     tsconfigPaths(),
+    // When compiling the project, copy the static file into the dist directory
     copy({
       targets: [{ src: "static/*", dest: "dist/static" }],
       hook: "writeBundle", // notice here

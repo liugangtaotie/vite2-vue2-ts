@@ -4,6 +4,7 @@ import { RootState } from "../types";
 
 const state: moduleMainState = {
   loading: false,
+  count: 100,
 };
 
 // 传入的泛型可以通过查看源代码得知。
@@ -13,6 +14,12 @@ const mutations: MutationTree<moduleMainState> = {
   },
   HIDE_LOADING(state: any) {
     state.loading = false;
+  },
+  increment(state: any) {
+    state.count++;
+  },
+  subtraction(state: any) {
+    state.count--;
   },
 };
 

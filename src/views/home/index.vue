@@ -14,10 +14,11 @@
     <van-button class="flex mt10" type="primary" @click="$router.push('/about')"
       >home,点击跳转about</van-button
     >
-    <div class="single">home</div>
-    <div class="single">home</div>
-    <div class="single">home</div>
-    <div class="single">home</div>
+    <div class="flex flex_center single">
+      store的count数据 <span class="ml20 f30 t2">{{ $store.state.moduleMain.count }}</span>
+    </div>
+    <van-button class="flex mt10" type="primary" @click="onClickAdd">add +</van-button>
+    <van-button class="flex mt10" type="primary" @click="onClickSub">dec -</van-button>
     <div class="single">home</div>
   </div>
 </template>
@@ -32,10 +33,22 @@ import { Component, Vue } from "vue-property-decorator";
 })
 export default class Home extends Vue {
   private signToShow: Boolean = false; //
+  private num: number = 0;
 
   created() {}
 
-  mounted() {}
+  mounted() {
+    console.info("1111", this.$store);
+    this.num = this.$store.state.moduleMain.count;
+  }
+
+  onClickAdd() {
+    this.$store.commit("moduleMain/increment");
+  }
+
+  onClickSub() {
+    this.$store.commit("moduleMain/subtraction");
+  }
 }
 </script>
 
@@ -51,12 +64,12 @@ export default class Home extends Vue {
   line-height: 150px;
   color: #fff;
   text-align: center;
-  background-color: #39a9ed;
+  background-color: #07c160;
 }
 
 .single {
   width: 100%;
-  height: 30px;
+  height: 50px;
   margin-top: 20px;
 }
 </style>
