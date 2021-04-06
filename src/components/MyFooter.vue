@@ -16,15 +16,8 @@ import { Component, Prop, Vue } from "vue-property-decorator";
   name: "MyFooter",
 })
 export default class MyFooter extends Vue {
-  // private active: number = 0;
   @Prop({ type: Number, default: 0 }) active;
   private activeIndex = 0;
-
-  // get activeIndex() {
-  //   console.info("1111111", this.active);
-
-  //   return this.active;
-  // }
 
   mounted() {
     this.activeIndex = this.active;
