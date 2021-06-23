@@ -13,7 +13,7 @@
     <div class="single">tabThree</div>
     <div class="single">tabThree</div>
     <div class="single">tabThree</div>
-    <MyFooter :active="2"></MyFooter>
+    <my-footer :active="2"></my-footer>
   </div>
 </template>
 

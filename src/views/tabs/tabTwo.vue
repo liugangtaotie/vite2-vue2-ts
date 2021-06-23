@@ -16,7 +16,7 @@
     <div class="single">tabTwo</div>
     <div class="single">tabTwo</div>
     <div class="single">tabTwo</div>
-    <MyFooter :active="1"></MyFooter>
+    <my-footer :active="1"></my-footer>
   </div>
 </template>
 

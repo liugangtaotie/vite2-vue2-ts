@@ -20,7 +20,7 @@
     <van-button class="flex mt10" type="primary" @click="onClickAdd">add +</van-button>
     <van-button class="flex mt10" type="primary" @click="onClickSub">dec -</van-button>
 
-    <MyFooter :active="0"></MyFooter>
+    <my-footer :active="0"></my-footer>
   </div>
 </template>
 
