@@ -19,11 +19,9 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import MyFooter from "@/components/MyFooter.vue";
 
 @Component({
   name: "TabFour",
-  components: { MyFooter },
 })
 export default class TabFour extends Vue {
   private activeTab = 0;

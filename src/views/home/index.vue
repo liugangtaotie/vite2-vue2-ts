@@ -26,11 +26,9 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import MyFooter from "@/components/MyFooter.vue";
 
 @Component({
   name: "Home",
-  components: { MyFooter },
 })
 export default class Home extends Vue {
   private signToShow: Boolean = false; //

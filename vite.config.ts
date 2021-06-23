@@ -2,6 +2,7 @@ import path, { resolve } from "path";
 import { defineConfig } from "vite";
 import { createVuePlugin } from "vite-plugin-vue2";
 import tsconfigPaths from "vite-tsconfig-paths";
+import ViteComponents from "vite-plugin-components";
 import copy from "rollup-plugin-copy";
 
 import pkg from "./package.json";
@@ -68,6 +69,9 @@ export default defineConfig({
       targets: [{ src: "static/*", dest: "dist/static" }],
       hook: "writeBundle", // notice here
     }),
+    // Use components in templates as you would usually do but NO import and component registration required anymore!
+    // It will import components on demand, code splitting is also possible.
+    ViteComponents(),
   ],
 
   css: {
