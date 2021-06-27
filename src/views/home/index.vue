@@ -18,7 +18,9 @@
       store的count数据 <span class="ml20 f30 t2">{{ $store.state.moduleMain.count }}</span>
     </div>
     <van-button class="flex mt10" type="primary" @click="onClickAdd">add +</van-button>
-    <van-button class="flex mt10" type="primary" @click="onClickSub">dec -</van-button>
+    <van-button style="margin-left: 10px" class="flex mt10" type="primary" @click="onClickSub"
+      >dec -</van-button
+    >
 
     <my-footer :active="0"></my-footer>
   </div>
