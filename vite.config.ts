@@ -4,6 +4,7 @@ import { createVuePlugin } from "vite-plugin-vue2";
 import tsconfigPaths from "vite-tsconfig-paths";
 import ViteComponents from "vite-plugin-components";
 import copy from "rollup-plugin-copy";
+import legacy from "@vitejs/plugin-legacy";
 
 import pkg from "./package.json";
 import moment from "moment";
@@ -72,6 +73,12 @@ export default defineConfig({
     // Use components in templates as you would usually do but NO import and component registration required anymore!
     // It will import components on demand, code splitting is also possible.
     ViteComponents(),
+
+    // When targeting IE11, you also need regenerator-runtime:
+    legacy({
+      targets: ["ie >= 11"],
+      additionalLegacyPolyfills: ["regenerator-runtime/runtime"],
+    }),
   ],
 
   css: {
@@ -136,6 +143,8 @@ export default defineConfig({
 
   server: {
     open: true,
+
+    host: "0.0.0.0",
 
     port: 8080,
     // Load proxy configuration from .env
