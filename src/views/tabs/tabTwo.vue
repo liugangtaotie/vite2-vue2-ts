@@ -5,6 +5,7 @@
         content of tab {{ index }}
       </van-tab>
     </van-tabs>
+    <my-first-component> 222 </my-first-component>
     <div class="single">tabTwo</div>
     <div class="single">tabTwo</div>
     <div class="single">tabTwo</div>
