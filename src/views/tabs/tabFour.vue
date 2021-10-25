@@ -13,6 +13,9 @@
     <div class="single">tabFour</div>
     <div class="single">tabFour</div>
     <div class="single">tabFour</div>
+    <div class="single">tabFour</div>
+    <div class="single">tabFour</div>
+    <div class="single">tabFour</div>
     <MyFooter :active="3"></MyFooter>
   </div>
 </template>
