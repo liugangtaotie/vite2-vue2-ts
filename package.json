@@ -125,10 +125,5 @@
     "*.{html,vue,css,sass,scss}": [
       "yarn stylelint"
     ]
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
   }
 }
