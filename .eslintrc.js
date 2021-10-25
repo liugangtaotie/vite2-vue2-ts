@@ -17,7 +17,7 @@ module.exports = {
     "prettier/vue",
   ],
   rules: {
-    "no-console": import.meta.env.MODE === "production" ? "off" : "off",
+    // "no-console": import.meta.env.MODE === "production" ? "off" : "off",
     // "no-debugger": import.meta.env.MODE === "production" ? "error" : "off",
     "vue/no-parsing-error": [
       "error",
