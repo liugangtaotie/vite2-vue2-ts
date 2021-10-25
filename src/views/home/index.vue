@@ -33,23 +33,6 @@
 import { Component, Vue } from "vue-property-decorator";
 import MyFooter from "@/components/MyFooter.vue";
 import SvgIcon from "@/components/SvgIcon.vue";
-import websdk from "easemob-websdk";
-let WebIM: any = {};
-WebIM.config = {
-  appKey: "easemob-demo#easeim",
-  url:
-    (window.location.protocol === "https:" ? "https:" : "http:") + "//im-api-v2-hsb.easemob.com/ws",
-  apiUrl: (window.location.protocol === "https:" ? "https:" : "http:") + "//a1-hsb.easemob.com",
-};
-WebIM.conn = new websdk.connection({
-  appKey: "easemob-demo#easeim",
-  url:
-    (window.location.protocol === "https:" ? "https:" : "http:") + "//im-api-v2-hsb.easemob.com/ws",
-  apiUrl: (window.location.protocol === "https:" ? "https:" : "http:") + "//a1-hsb.easemob.com",
-});
-
-WebIM.config.restServer =
-  (window.location.protocol === "https:" ? "https:" : "http:") + "//a1-hsb.easemob.com";
 
 @Component({
   name: "Home",
@@ -67,33 +50,6 @@ export default class Home extends Vue {
     this.num = this.$store.state.moduleMain.count;
 
     this.login();
-    setTimeout(this.sendPrivateText, 2000);
-
-    setTimeout(this.getRosterList, 3000);
-
-    WebIM.conn.listen({
-      onError(error) {
-        console.log("onError", error);
-      },
-      onTextMessage(message) {
-        console.log("message", message);
-      },
-      onContactAgreed: function (message) {
-        console.log("onContactAgreed", message);
-      }, // 好友请求被同意
-      onContactInvited: function (message) {
-        console.log("onContactInvited", message);
-      }, // 收到好友邀请
-      onContactDeleted: function (message) {
-        console.log("onContactDeleted", message);
-      }, // 被删除时回调此方法
-      onContactAdded: function (message) {
-        console.log("onContactAdded", message);
-      }, // 增加了联系人时回调此方法
-      onContactRefuse: function (message) {
-        console.log("onContactRefuse", message);
-      }, // 好友请求被拒绝
-    });
   }
 
   onClickAdd() {
@@ -104,42 +60,12 @@ export default class Home extends Vue {
     this.$store.commit("moduleMain/subtraction");
   }
 
-  sendPrivateText() {
-    let id = WebIM.conn.getUniqueId(); // 生成本地消息id
-    let msg = new websdk.message("txt", id); // 创建文本消息
-
-    let message = "加个好友呗!";
-    // WebIM.conn.addContact("ceshi", message);
-
-    // WebIM.conn.acceptInvitation("ceshi");
-
-    msg.set({
-      msg: "message content", // 消息内容
-      to: "zd1", // 接收消息对象（用户id）
-      chatType: "singleChat", // 设置为单聊
-      success: function (id, serverMsgId) {
-        console.log("send private text Success 发送");
-      },
-      fail: function (e) {
-        console.log("Send private text error");
-      },
-    });
-    WebIM.conn.send(msg.body);
-  }
-
-  getRosterList() {
-    WebIM.conn.getRoster().then((res) => {
-      console.log("查询好友列表", res); // res.data > ['user1', 'user2']
-    });
-  }
-
   login() {
     var options = {
       user: "zd2",
       pwd: "1",
       appKey: "easemob-demo#easeim",
     };
-    WebIM.conn.open(options);
   }
 }
 </script>

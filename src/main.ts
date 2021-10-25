@@ -9,8 +9,6 @@ import "./assets/css/style.css";
 import "./assets/css/flex.css";
 // import "./assets/css/sprites-generated.css";
 
-import 'vite-plugin-svg-icons/register';
-
 // Add lazyload directive
 import VueLazyload from "vue-lazyload";
 import errorImg from '@ASS/images/defaultPhoto.png';

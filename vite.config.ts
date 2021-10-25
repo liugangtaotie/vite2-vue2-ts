@@ -3,7 +3,6 @@ import { defineConfig } from "vite";
 import { createVuePlugin } from "vite-plugin-vue2";
 import tsconfigPaths from "vite-tsconfig-paths";
 import copy from "rollup-plugin-copy";
-import viteSvgIcons from "vite-plugin-svg-icons";
 import viteImagemin from "vite-plugin-imagemin";
 
 import pkg from "./package.json";
@@ -69,13 +68,6 @@ export default defineConfig({
     copy({
       targets: [{ src: "static/*", dest: "dist/static" }],
       hook: "writeBundle", // notice here
-    }),
-    // Vite Plugin for fast creating SVG sprites.
-    viteSvgIcons({
-      // Specify the icon folder to be cached
-      iconDirs: [path.resolve(process.cwd(), "src/assets/icons")],
-      // Specify symbolId format
-      symbolId: "icon-[dir]-[name]",
     }),
     // Used to pack compressed image resources
     viteImagemin({
