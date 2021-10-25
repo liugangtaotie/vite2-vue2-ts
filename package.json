@@ -118,11 +118,11 @@
     "vue2"
   ],
   "lint-staged": {
-    "src/**/*.{js,ts,tsx,vue}": [
-      "eslint --fix"
+    "*.{js,ts,vue}": [
+      "yarn autofix"
     ],
-    "src/**/*.{vue,htm,html,css,sss,less,scss}": [
-      "stylelint --fix"
+    "*.{html,vue,css,sass,scss}": [
+      "yarn stylelint"
     ]
   },
   "config": {
