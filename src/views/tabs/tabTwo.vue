@@ -16,15 +16,17 @@
     <div class="single">tabTwo</div>
     <div class="single">tabTwo</div>
     <div class="single">tabTwo</div>
-    <my-footer :active="1"></my-footer>
+    <MyFooter :active="1"></MyFooter>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
+import MyFooter from "@/components/MyFooter.vue";
 
 @Component({
   name: "TabTwo",
+  components: { MyFooter },
 })
 export default class TabTwo extends Vue {
   private activeTab = 0;

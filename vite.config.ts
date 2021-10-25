@@ -2,9 +2,9 @@ import path, { resolve } from "path";
 import { defineConfig } from "vite";
 import { createVuePlugin } from "vite-plugin-vue2";
 import tsconfigPaths from "vite-tsconfig-paths";
-import ViteComponents from "vite-plugin-components";
 import copy from "rollup-plugin-copy";
-import legacy from "@vitejs/plugin-legacy";
+import viteSvgIcons from "vite-plugin-svg-icons";
+import viteImagemin from "vite-plugin-imagemin";
 
 import pkg from "./package.json";
 import moment from "moment";
@@ -70,14 +70,42 @@ export default defineConfig({
       targets: [{ src: "static/*", dest: "dist/static" }],
       hook: "writeBundle", // notice here
     }),
-    // Use components in templates as you would usually do but NO import and component registration required anymore!
-    // It will import components on demand, code splitting is also possible.
-    ViteComponents(),
-
-    // When targeting IE11, you also need regenerator-runtime:
-    legacy({
-      targets: ["ie >= 11"],
-      additionalLegacyPolyfills: ["regenerator-runtime/runtime"],
+    // Vite Plugin for fast creating SVG sprites.
+    viteSvgIcons({
+      // Specify the icon folder to be cached
+      iconDirs: [path.resolve(process.cwd(), "src/assets/icons")],
+      // Specify symbolId format
+      symbolId: "icon-[dir]-[name]",
+    }),
+    // Used to pack compressed image resources
+    viteImagemin({
+      gifsicle: {
+        optimizationLevel: 7,
+        interlaced: false,
+      },
+      optipng: {
+        optimizationLevel: 7,
+      },
+      webp: {
+        quality: 75,
+      },
+      mozjpeg: {
+        quality: 65,
+      },
+      pngquant: {
+        quality: [0.65, 0.9],
+        speed: 4,
+      },
+      svgo: {
+        plugins: [
+          {
+            removeViewBox: false,
+          },
+          {
+            removeEmptyAttrs: false,
+          },
+        ],
+      },
     }),
   ],
 
@@ -143,8 +171,6 @@ export default defineConfig({
 
   server: {
     open: true,
-
-    host: "0.0.0.0",
 
     port: 8080,
     // Load proxy configuration from .env

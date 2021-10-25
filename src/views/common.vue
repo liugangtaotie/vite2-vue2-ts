@@ -2,7 +2,6 @@
   <div class="app" style="height: 100vh; overflow-x: hidden; background-color: #f2f2f2">
     <!--内容模块-->
     <section class="section_content_model">页面正在开发中...</section>
-    <section class="section_content_model">页面正在开发中...</section>
   </div>
 </template>
 

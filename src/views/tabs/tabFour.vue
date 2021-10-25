@@ -13,15 +13,17 @@
     <div class="single">tabFour</div>
     <div class="single">tabFour</div>
     <div class="single">tabFour</div>
-    <my-footer :active="3"></my-footer>
+    <MyFooter :active="3"></MyFooter>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
+import MyFooter from "@/components/MyFooter.vue";
 
 @Component({
   name: "TabFour",
+  components: { MyFooter },
 })
 export default class TabFour extends Vue {
   private activeTab = 0;

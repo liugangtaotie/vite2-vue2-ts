@@ -12,6 +12,12 @@ module.exports = {
         ignoreAtRules: ["function", "if", "each", "include", "mixin"],
       },
     ],
+    "selector-pseudo-element-no-unknown": [
+      true,
+      {
+        ignorePseudoElements: ["v-deep"],
+      },
+    ],
     "rule-empty-line-before": null,
     "no-extra-semicolons": null,
     "at-rule-empty-line-before": null,
