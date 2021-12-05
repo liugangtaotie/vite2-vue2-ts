@@ -3,7 +3,8 @@ import { defineConfig } from "vite";
 import { createVuePlugin } from "vite-plugin-vue2";
 import tsconfigPaths from "vite-tsconfig-paths";
 import copy from "rollup-plugin-copy";
-import viteImagemin from "vite-plugin-imagemin";
+import viteCompression from "vite-plugin-compression";
+// import viteImagemin from "vite-plugin-imagemin";
 
 import pkg from "./package.json";
 import moment from "moment";
@@ -69,36 +70,44 @@ export default defineConfig({
       targets: [{ src: "static/*", dest: "dist/static" }],
       hook: "writeBundle", // notice here
     }),
-    // Used to pack compressed image resources
-    viteImagemin({
-      gifsicle: {
-        optimizationLevel: 7,
-        interlaced: false,
-      },
-      optipng: {
-        optimizationLevel: 7,
-      },
-      webp: {
-        quality: 75,
-      },
-      mozjpeg: {
-        quality: 65,
-      },
-      pngquant: {
-        quality: [0.65, 0.9],
-        speed: 4,
-      },
-      svgo: {
-        plugins: [
-          {
-            removeViewBox: false,
-          },
-          {
-            removeEmptyAttrs: false,
-          },
-        ],
-      },
+    // gzip压缩 生产环境生成 .gz 文件
+    viteCompression({
+      verbose: true,
+      disable: false,
+      threshold: 10240,
+      algorithm: "gzip",
+      ext: ".gz",
     }),
+    // Used to pack compressed image resources
+    // viteImagemin({
+    //   gifsicle: {
+    //     optimizationLevel: 7,
+    //     interlaced: false,
+    //   },
+    //   optipng: {
+    //     optimizationLevel: 7,
+    //   },
+    //   webp: {
+    //     quality: 75,
+    //   },
+    //   mozjpeg: {
+    //     quality: 65,
+    //   },
+    //   pngquant: {
+    //     quality: [0.65, 0.9],
+    //     speed: 4,
+    //   },
+    //   svgo: {
+    //     plugins: [
+    //       {
+    //         removeViewBox: false,
+    //       },
+    //       {
+    //         removeEmptyAttrs: false,
+    //       },
+    //     ],
+    //   },
+    // }),
   ],
 
   css: {
