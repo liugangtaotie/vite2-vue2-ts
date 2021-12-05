@@ -4,6 +4,7 @@ import { createVuePlugin } from "vite-plugin-vue2";
 import tsconfigPaths from "vite-tsconfig-paths";
 import copy from "rollup-plugin-copy";
 import viteCompression from "vite-plugin-compression";
+import ViteComponents from "vite-plugin-components";
 // import viteImagemin from "vite-plugin-imagemin";
 
 import pkg from "./package.json";
@@ -78,6 +79,10 @@ export default defineConfig({
       algorithm: "gzip",
       ext: ".gz",
     }),
+    // Use components in templates as you would usually do but NO import
+    // and component registration required anymore!
+    // It will import components on demand, code splitting is also possible.
+    ViteComponents() as Plugin,
     // Used to pack compressed image resources
     // viteImagemin({
     //   gifsicle: {
